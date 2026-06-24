@@ -84,5 +84,8 @@ export default class WebpackConfig {
     this.config = fs.existsSync(configFile)
       ? __non_webpack_require__(configFile)
       : {}
+    if (this.config.__esModule && this.config.default) {
+      this.config = this.config.default;
+    }
   }
 }
